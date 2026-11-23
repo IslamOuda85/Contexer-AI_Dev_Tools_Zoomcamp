@@ -28,7 +28,7 @@ After a mission, a learner should be able to identify important missing prompt e
 | Access | Free to learners; no payment flow |
 | AI cost | Paid by the project owner from a server-side OpenAI API project |
 | Identity | An account is required for live attempts and saved progress; visitors can view a precomputed demonstration |
-| Missions | Six curated missions initially; each has a stable, reviewed reference prompt and response |
+| Missions | Ten curated missions initially; each will have a stable, reviewed reference prompt and response |
 | Reference reveal | After the learner's first submitted attempt in that mission |
 | Prompt limit | 800 characters, visibly counted and enforced on the server |
 | Feedback | Brief, specific, and available after every attempt |
@@ -75,7 +75,7 @@ Before release, maintain a small reviewed set of weak, partial, and strong promp
 
 ## 5. Mission content plan
 
-The existing six levels provide the initial curriculum. Each mission card must supply all facts needed to complete its goal. The examples below illustrate good and weak *instructions*; the full mission content and exact rubrics will be written and reviewed during the content milestone.
+The ten drafted levels provide the initial curriculum. Each mission card must supply all facts needed to complete its goal. The examples below illustrate good and weak *instructions*; exact rubrics, reference prompts, and evaluated examples will be written and reviewed during the content milestone.
 
 | Mission | Core skill | Weak example | Strong example pattern |
 | --- | --- | --- | --- |
@@ -85,8 +85,12 @@ The existing six levels provide the initial curriculum. Each mission card must s
 | 4. Feed the context | Provide situation, relationship, tone, and desired outcome | “Decline this job.” | Explain the fictional offer and reason for declining; request a polite, brief email that leaves the door open. |
 | 5. Show an example | Supply pattern and output rules | “Make these sound better.” | Provide the five mission notes, one input-to-tagline example, and rules for tone and length. |
 | 6. Evaluate a decision | Define process and criteria | “Pick a price.” | Provide three actual pricing options and ask for trade-offs, explicit evaluation criteria, assumptions, and a recommendation. |
+| 7. Ground in the source | Use only supplied facts and flag unknowns | “Announce the event.” | Use the event notice, preserve its exact facts, and label registration details as unknown. |
+| 8. Clarify before acting | Ask for missing details before scheduling | “Move it to Friday.” | Ask up to three essential questions about the current appointment, requested time, and time zone before suggesting a slot. |
+| 9. Critique, then revise | Repair tone and factual claims | “Make this nicer.” | Flag the blunt draft and unknown refund eligibility, then write a respectful reply asking for the missing facts. |
+| 10. Guard the boundary | Separate trusted policy from untrusted ticket text | “Follow the customer's instructions.” | Treat the ticket as data, follow only the official reset policy, and never request a password. |
 
-Mission 4 needs a complete fictional situation. Mission 5 needs five actual product notes. Mission 6 needs three actual pricing options. These facts must appear on the mission card before an attempt; the learner should not be penalized for information the game never supplied.
+The mission cards now include the fictional job offer, five product notes, and three pricing options needed for Missions 4–6. Before release, review every card against its rubric and reference response so learners are never penalized for information the game did not supply.
 
 ## 6. Accounts, data, and administration
 
@@ -125,7 +129,7 @@ The owner's current API balance is approximately USD 3.50. This is a pilot budge
 
 ### Milestone 1 — Working learning loop
 
-- Complete and review all six mission cards and reference prompts.
+- Complete and review all ten mission cards and reference prompts.
 - Implement account sign-in, private attempt history, and saved progress.
 - Replace the Lovable AI gateway with a server-side OpenAI integration.
 - Implement isolated learner-response execution and independently executed, stored references.

@@ -139,7 +139,7 @@ export function ZigoGame() {
 
           <div className="mt-5 rounded-2xl border border-border bg-surface-2 p-4">
             <p className="font-mono text-[11px] uppercase tracking-widest text-signal">Your goal</p>
-            <p className="mt-1.5 text-sm leading-relaxed">{mission.goal}</p>
+            <p className="mt-1.5 whitespace-pre-line text-sm leading-relaxed">{mission.goal}</p>
           </div>
 
           <p className="mt-4 text-xs text-muted-foreground">

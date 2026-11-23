@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import zigoImg from "@/assets/zigo.png";
 import { ZigoGame } from "@/components/game/ZigoGame";
+import { missions } from "@/lib/missions";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -15,7 +16,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Prompt Zigo the robot through 6 missions and get scored on clarity, context and constraints.",
+          `Prompt Zigo the robot through ${missions.length} missions and get scored on clarity, context and constraints.`,
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -52,7 +53,7 @@ function Index() {
           <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
             Meet <span className="text-foreground">Zigo</span> — an AI model you can only reach
             through prompts. Say too little and he guesses. Give him role, context, format and
-            constraints and he becomes brilliant. Six missions turn that gap into a skill.
+            constraints and he becomes brilliant. {missions.length} missions turn that gap into a skill.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -62,7 +63,7 @@ function Index() {
               Contact Zigo
             </a>
             <span className="rounded-full border border-border px-6 py-3 font-mono text-xs text-muted-foreground">
-              beginner → expert · 6 levels
+              beginner → expert · {missions.length} levels
             </span>
           </div>
           <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4 border-t border-border pt-6">

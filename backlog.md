@@ -7,7 +7,7 @@ This is the local source of truth for planned work. It is based on [project_plan
 | ID | Issue | Phase | Depends on | GitHub issue |
 | --- | --- | --- | --- | --- |
 | B-01 | Document the product and public task process | Pass | — | Not published |
-| B-02 | Complete six mission scenarios and rubrics | Pass | B-01 | Not published |
+| B-02 | Complete ten mission scenarios and rubrics | Pass | B-01 | Not published |
 | B-03 | Define agent roles and durable project context | Pass | B-01 | Not published |
 | B-04 | Prove auth, database, and host integration | Pass | B-01 | Not published |
 | B-05 | Add sign-in and protected account access | Pass | B-04 | Not published |
@@ -36,14 +36,14 @@ This is the local source of truth for planned work. It is based on [project_plan
 
 **Acceptance checks:**
 
-- README states the problem, the six-mission learning loop, expected behavior, proposed architecture, and current limitations.
+- README states the problem, the ten-mission learning loop, expected behavior, proposed architecture, and current limitations.
 - `project_plan.md` holds acceptance criteria and records provisional decisions as such.
 - Public GitHub issues use this backlog's IDs and link back to the plan; the backlog contains verified issue URLs after publication.
 - At least one subsequent agent task or PR explicitly cites and updates its issue, proving the tracker is used.
 
 **Evidence:** Public README, plan, issue index, and an agent/PR reference to an issue. **Rubric:** Problem Description; Product Specification.
 
-### B-02 — Complete six mission scenarios and rubrics
+### B-02 — Complete ten mission scenarios and rubrics
 
 **Outcome:** Every mission gives the learner enough information to succeed, and grading is tied to visible requirements.
 
@@ -51,8 +51,8 @@ This is the local source of truth for planned work. It is based on [project_plan
 
 **Acceptance checks:**
 
-- All six cards provide goals, facts, hints, a short weak example, and a reviewed strong reference prompt.
-- Mission 4 includes a fictional job-offer situation; Mission 5 supplies five notes; Mission 6 supplies three pricing options.
+- All ten cards provide goals, facts, hints, a short weak example, and a reviewed strong reference prompt.
+- Mission 4 includes a fictional job-offer situation; Mission 5 supplies five notes; Mission 6 supplies three pricing options; Missions 7–10 cover source grounding, clarification, critique, and instruction boundaries.
 - Each rubric element has a unique ID, description, weight, and critical flag. Weights total 100 per mission.
 - Each mission has reviewed weak, partial, and strong prompt fixtures with expected checklist outcomes.
 - The reference remains hidden until the first attempt; examples do not reveal the full answer beforehand.
@@ -138,7 +138,7 @@ This is the local source of truth for planned work. It is based on [project_plan
 
 **Outcome:** The comparison uses a real response to a reviewed reference prompt and stays stable across learner attempts.
 
-**Boundary:** Reference execution, review, versioning, and storage for six fixed missions.
+**Boundary:** Reference execution, review, versioning, and storage for ten fixed missions.
 
 **Acceptance checks:**
 
