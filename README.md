@@ -64,7 +64,7 @@ The reference prompt is revealed after the first attempt. Its response is genera
 
 ## 4. Current implementation
 
-The prototype has a landing page, ten mission cards, a prompt editor with an 800-character limit, a response display, and a server function that asks the Lovable AI gateway for a reply, score, coaching, and an improved example in one call. The server loads mission facts by ID rather than trusting client-supplied facts. Best scores live only in browser memory and disappear on refresh. The [mission scenarios, rubrics, and reference prompts](docs/mission-content-review.md) have been reviewed as content; reference responses have not been executed or evaluated. Accounts, a database, automated tests, containerization, CI/CD, a verified public deployment, and operational monitoring are not yet included in this checkout.
+The prototype has a landing page, ten mission cards, a prompt editor with an 800-character limit, a response display, and a server function that asks the Lovable AI gateway for a reply, score, coaching, and an improved example in one call. The server loads mission facts by ID rather than trusting client-supplied facts. Best scores live only in browser memory and disappear on refresh. The [mission scenarios, rubrics, and reference prompts](docs/mission-content-review.md) have been reviewed as content; reference responses have not been executed or evaluated. A [local auth/database spike](docs/b04-local-spike.md) and app Dockerfile have been added but have not passed their live two-account or container-run checks. The full account system, saved attempts, CI/CD, verified public deployment, and operational monitoring are not yet included in this checkout.
 
 This distinction matters when reviewing progress: the product plan and backlog describe intended behavior, while this section describes what the checked-in prototype currently does.
 
@@ -73,15 +73,15 @@ This distinction matters when reviewing progress: the product plan and backlog d
 Prerequisites: Node.js 24 or newer and npm. Node 24 supports the repository's direct TypeScript imports in the mission-content check. From this directory:
 
 ```sh
-npm install --legacy-peer-deps --no-package-lock
+npm ci --legacy-peer-deps
 npm run dev
 ```
 
-This temporary install command was used successfully on Windows with Node 24 and npm 11. The dev server used `http://127.0.0.1:8080/` here; check the terminal for the port on your machine. There is no committed npm lockfile yet, so clean-install reproducibility remains a B-04/B-13 task.
+The dev server used `http://127.0.0.1:8080/` here; check the terminal for the port on your machine. The new npm lockfile supports repeatable installs; its clean-container install still needs verification.
 
 The page can render without an AI key, but submitting a prompt currently requires a server-side `LOVABLE_API_KEY`. Do not commit real keys. This dependency will be replaced by the OpenAI integration in the backlog. The prototype has `npm run build` and `npm run lint`; it does not yet have a test command. The build, TypeScript check, and repository-wide lint command pass locally; lint reports six non-blocking Fast Refresh warnings in existing UI components.
 
-For the planned OpenAI integration, copy [`.env.example`](.env.example) to `.env.local` and put `OPENAI_API_KEY=your_key_here` in `.env.local`. The latter is ignored by Git. Restart the dev server after changing environment variables. The current prototype will not use this OpenAI key until B-07 replaces the Lovable gateway; never put it in a `VITE_` variable or browser code.
+Keep `OPENAI_API_KEY` only in an ignored `.env` or `.env.local` file; [`.env.example`](.env.example) contains placeholders only. Restart the dev server after changing environment variables. The current prototype will not use the OpenAI key until B-07 replaces the Lovable gateway; never put it in a `VITE_` variable or browser code.
 
 Run `npm run check:missions` to validate the ten mission cards, rubric weights, reference-prompt limits, and example fixtures without making AI calls.
 

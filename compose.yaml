@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      SUPABASE_URL: http://host.docker.internal:54321
+      SUPABASE_PUBLISHABLE_KEY: ${SUPABASE_PUBLISHABLE_KEY:?Set the local Supabase publishable key in .env}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

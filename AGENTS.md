@@ -4,7 +4,7 @@ Contexer is an English-language prompt-engineering learning game. The current co
 
 ## Essential local commands
 
-Use Node.js 24 or newer. From this repository directory, run `npm install --legacy-peer-deps --no-package-lock` for the current prototype, then `npm run dev` to serve it locally. Check a change with `npm run check:missions` for mission content, `npm run lint` for source lint, `npx tsc --noEmit` for types, and `npm run build` for a production build. There is no automated unit or integration test command yet; see [README.md](README.md) for setup limits and do not report these checks as tests that do not exist.
+Use Node.js 24 or newer. From this repository directory, run `npm ci --legacy-peer-deps`, then `npm run dev` to serve it locally. Check a change with `npm run check:missions` for mission content, `npm run lint` for source lint, `npx tsc --noEmit` for types, and `npm run build` for a production build. The B-04 local two-account check is `node --env-file=.env scripts/check-private-spike.mjs` after starting Supabase and the app; see [docs/b04-local-spike.md](docs/b04-local-spike.md) for its prerequisites and current limits. There is no full unit or integration test command yet; do not report checks that have not run.
 
 ## Working process
 
