@@ -2,29 +2,29 @@
 
 This is the local source of truth for planned work. It is based on [project_plan.md](project_plan.md) and the [current 2026 final-project rubric](https://github.com/DataTalksClub/ai-dev-tools-zoomcamp/blob/main/project/README.md). Documentation and GitHub issues are in English for peer reviewers. The priorities are: pass the course, make the app worth showing publicly, then add advanced operations work.
 
-**GitHub status:** The issue references below are deliberately marked **Not published**. After creating and pushing the public repository, the owner can run `./scripts/publish-backlog.ps1` with GitHub CLI authenticated. The script creates or reuses issues and writes verified URLs into this table; never infer an issue number from its backlog ID. An agent starting an item should link its issue in the work branch or PR and record what acceptance checks it ran. The project manager keeps this file and GitHub issues synchronized.
+**GitHub status:** The public repository has 19 tasks with verified GitHub issue URLs in the table below. Run `./scripts/publish-backlog.ps1` with GitHub CLI authenticated after adding a task to create or reuse its issue and update the table; never infer an issue number from its backlog ID. An agent starting an item should link its issue in the work branch or PR and record what acceptance checks it ran. The project manager keeps this file and GitHub issues synchronized.
 
 | ID | Issue | Phase | Depends on | GitHub issue |
 | --- | --- | --- | --- | --- |
-| B-01 | Document the product and public task process | Pass | — | Not published |
-| B-02 | Complete ten mission scenarios and rubrics | Pass | B-01 | Not published |
-| B-03 | Define agent roles and durable project context | Pass | B-01 | Not published |
-| B-04 | Prove auth, database, and host integration | Pass | B-01 | Not published |
-| B-05 | Add sign-in and protected account access | Pass | B-04 | Not published |
-| B-06 | Persist private attempts and progress | Pass | B-04, B-05 | Not published |
-| B-07 | Run the learner prompt through OpenAI | Pass | B-02, B-04 | Not published |
-| B-08 | Version and store independently executed references | Pass | B-02, B-07 | Not published |
-| B-09 | Evaluate checklist evidence and compute score | Pass | B-02, B-07, B-08 | Not published |
-| B-10 | Complete the learning loop in the UI | Pass | B-05–B-09 | Not published |
-| B-11 | Add limits, usage records, and admin dashboard | Pass | B-05, B-06, B-07 | Not published |
-| B-12 | Add unit, frontend, and integration tests | Pass | B-07–B-11 | Not published |
-| B-13 | Start the full local system with one Docker-based command | Pass | B-04–B-06 | Not published |
-| B-14 | Run CI checks on every pull request | Pass | B-12, B-13 | Not published |
-| B-15 | Publish the app and document rollback | Pass | B-10–B-14 | Not published |
-| B-16 | Instrument the attempt journey | Showcase | B-07, B-10, B-15 | Not published |
-| B-17 | Alert on failed learner attempts | Showcase | B-16 | Not published |
-| B-18 | Demonstrate a bounded on-call responder | Advanced | B-17 | Not published |
-| B-19 | Verify submission evidence and complete peer reviews | Submission | B-15–B-18 | Not published |
+| B-01 | Document the product and public task process | Pass | — | [#1](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/1) |
+| B-02 | Complete ten mission scenarios and rubrics | Pass | B-01 | [#2](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/2) |
+| B-03 | Define agent roles and durable project context | Pass | B-01 | [#3](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/3) |
+| B-04 | Prove auth, database, and host integration | Pass | B-01 | [#4](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/4) |
+| B-05 | Add sign-in and protected account access | Pass | B-04 | [#5](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/5) |
+| B-06 | Persist private attempts and progress | Pass | B-04, B-05 | [#6](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/6) |
+| B-07 | Run the learner prompt through OpenAI | Pass | B-02, B-04 | [#7](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/7) |
+| B-08 | Version and store independently executed references | Pass | B-02, B-07 | [#8](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/8) |
+| B-09 | Evaluate checklist evidence and compute score | Pass | B-02, B-07, B-08 | [#9](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/9) |
+| B-10 | Complete the learning loop in the UI | Pass | B-05–B-09 | [#10](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/10) |
+| B-11 | Add limits, usage records, and admin dashboard | Pass | B-05, B-06, B-07 | [#11](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/11) |
+| B-12 | Add unit, frontend, and integration tests | Pass | B-07–B-11 | [#12](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/12) |
+| B-13 | Start the full local system with one Docker-based command | Pass | B-04–B-06 | [#13](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/13) |
+| B-14 | Run CI checks on every pull request | Pass | B-12, B-13 | [#14](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/14) |
+| B-15 | Publish the app and document rollback | Pass | B-10–B-14 | [#15](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/15) |
+| B-16 | Instrument the attempt journey | Showcase | B-07, B-10, B-15 | [#16](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/16) |
+| B-17 | Alert on failed learner attempts | Showcase | B-16 | [#17](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/17) |
+| B-18 | Demonstrate a bounded on-call responder | Advanced | B-17 | [#18](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/18) |
+| B-19 | Verify submission evidence and complete peer reviews | Submission | B-15–B-18 | [#19](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/19) |
 
 ## Pass: product, application, and delivery
 
@@ -317,4 +317,3 @@ This is the local source of truth for planned work. It is based on [project_plan
 - Validate that the proposed Supabase local stack plus app meets the course's single-command Docker criterion during B-04/B-13; change the integration plan if it does not.
 - Tune the provisional 80% threshold and five-attempt daily quota using reviewed examples and observed API cost during B-02/B-09/B-11.
 - Choose a safe, demonstrable responder action only after the deployed failure modes are known in B-16/B-18.
-- Verify that a GitHub repository and each issue URL exist before replacing any **Not published** marker.

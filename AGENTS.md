@@ -13,6 +13,8 @@ Contexer is an English-language prompt-engineering learning game. The current co
 - Before publishing work, run the relevant build, lint, and tests when available. Document any missing command or failed check.
 - Avoid rewriting published Git history. Keep changes small and reviewable, especially while Lovable synchronization may apply.
 
+The Lovable warning below was inherited with the prototype. Verify whether this GitHub repository is still connected to Lovable before relying on synchronization; keep the history precaution in either case.
+
 <!-- LOVABLE:BEGIN -->
 > [!IMPORTANT]
 > This project is connected to [Lovable](https://lovable.dev). Avoid rewriting

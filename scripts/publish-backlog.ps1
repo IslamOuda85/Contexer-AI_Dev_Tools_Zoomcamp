@@ -19,9 +19,13 @@ try {
     }
 
     $visibility = (& gh repo view --json visibility -q '.visibility').Trim()
-    if ($LASTEXITCODE -ne 0 -or $visibility -ne 'PUBLIC') {
-        throw 'The course backlog must be published to a public repository.'
+    if ($LASTEXITCODE -ne 0 -or $visibility -notin @('PUBLIC', 'PRIVATE')) {
+        throw 'Could not determine the GitHub repository visibility.'
     }
+    if ($visibility -eq 'PRIVATE') {
+        Write-Warning 'The repository is private. Issues can be created now, but peer reviewers cannot see them until the repository is public.'
+    }
+    $planUrl = "https://github.com/$repository/blob/main/project_plan.md"
 
     $backlogText = Get-Content -LiteralPath $backlogPath -Raw
     $pattern = '(?ms)^### (B-\d{2}) — ([^\r\n]+)\r?\n(.*?)(?=^### |^## |\z)'
@@ -50,7 +54,7 @@ try {
             Write-Host "Using existing issue: $title -> $url"
         }
         else {
-            $body = "Source: https://github.com/$repository/blob/main/backlog.md`n`n" + $task.Groups[3].Value.Trim()
+            $body = "Source: https://github.com/$repository/blob/main/backlog.md`nPlan: $planUrl`n`n" + $task.Groups[3].Value.Trim()
             $tempFile = New-TemporaryFile
             try {
                 Set-Content -LiteralPath $tempFile.FullName -Value $body -Encoding utf8
@@ -71,6 +75,25 @@ try {
             throw "Unexpected issue URL: $url"
         }
         $number = $issueNumberMatch.Groups[1].Value
+        $currentBody = (& gh issue view $url --json body -q '.body') -join "`n"
+        if ($LASTEXITCODE -ne 0) {
+            throw "Could not read issue body for $title"
+        }
+        if (-not $currentBody.Contains($planUrl)) {
+            $tempFile = New-TemporaryFile
+            try {
+                $updatedBody = "Plan: $planUrl`n`n" + $currentBody.Trim()
+                Set-Content -LiteralPath $tempFile.FullName -Value $updatedBody -Encoding utf8
+                & gh issue edit $url --body-file $tempFile.FullName | Out-Null
+                if ($LASTEXITCODE -ne 0) {
+                    throw "Could not add plan link to issue $title"
+                }
+            }
+            finally {
+                Remove-Item -LiteralPath $tempFile.FullName -ErrorAction SilentlyContinue
+            }
+            Write-Host "Linked plan in issue: $title"
+        }
         for ($i = 0; $i -lt $lines.Count; $i++) {
             if ($lines[$i].StartsWith("| $id |")) {
                 $lines[$i] = $lines[$i] -replace '\| (Not published|\[#\d+\]\([^)]*\)) \|$', "| [#$number]($url) |"

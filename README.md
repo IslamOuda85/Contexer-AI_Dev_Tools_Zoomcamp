@@ -8,7 +8,7 @@ Contexer is an English-language game for learning prompt engineering by observin
 
 A vague prompt can leave an AI model to guess the audience, facts, format, or constraints. Contexer makes those guesses visible and helps a learner improve one prompt at a time. The initial curriculum has ten curated missions. The product is free to learners; the project owner pays for AI calls and sets usage limits.
 
-The [project plan](project_plan.md) defines behavior, scope, acceptance criteria, and delivery stages. The [backlog](backlog.md) tracks issue-sized work and its GitHub issue links when published.
+The [project plan](project_plan.md) defines behavior, scope, acceptance criteria, and delivery stages. The [backlog](backlog.md) tracks issue-sized work and links each task to its GitHub issue.
 
 ## 2. Suggested ecosystem
 
@@ -21,13 +21,25 @@ The [project plan](project_plan.md) defines behavior, scope, acceptance criteria
 | AI service | OpenAI Responses API called only from the server | Planned; the prototype uses the Lovable AI gateway |
 | Local services | Docker-based local application and database/auth stack | Planned and must be verified as a single-command run |
 | Hosting | Vercel for the application, managed PostgreSQL/Auth, `contexer.owda.io` as a candidate domain | Planned, not deployed |
-| Source and delivery | GitHub repository, Issues, Actions, development and production environments | Public repository created; Issues and workflows pending |
+| Source and delivery | GitHub repository, Issues, Actions, development and production environments | Public repository and 19 Issues available; workflows pending |
 | Testing | Vitest for unit logic, Testing Library for UI, Playwright for browser flows, and a separate model-quality evaluation set | Planned |
 | Observability | OpenTelemetry with correlated logs, traces, and metrics, collected in a Grafana-compatible stack | Planned |
 
 The first setup task will confirm the npm choice, generate its lockfile, and retire the unused Bun lockfile so clean installs are reproducible. The selected hosting and Supabase integration must pass a small end-to-end spike before the architecture is treated as final.
 
-## 3. Learner journey
+### Proposed system boundary
+
+```mermaid
+flowchart LR
+    Browser[Learner browser] --> App[TanStack Start server]
+    Admin[Admin dashboard] --> App
+    App --> Auth[Supabase Auth and PostgreSQL]
+    App --> AI[OpenAI API]
+```
+
+The browser will send a mission ID and prompt to the server. The server will verify the account and quota, load the mission and rubric, call OpenAI, compute the score, and save the attempt. The browser will never receive an API key or decide its own score. The current prototype only has the browser, one server function, and a Lovable AI gateway call; the other connections and checks are planned.
+
+## 3. Planned learner journey
 
 ```mermaid
 flowchart TD
@@ -65,7 +77,7 @@ npm install
 npm run dev
 ```
 
-The page can render without an AI key, but submitting a prompt currently requires a server-side `LOVABLE_API_KEY`. Do not commit real keys. This dependency will be replaced by the OpenAI integration in the backlog. The prototype has `npm run build` and `npm run lint`; it does not yet have a test command.
+The page can render without an AI key, but submitting a prompt currently requires a server-side `LOVABLE_API_KEY`. Do not commit real keys. This dependency will be replaced by the OpenAI integration in the backlog. The prototype has `npm run build` and `npm run lint`; it does not yet have a test command. The npm installation path has not been verified from a clean checkout and does not yet have a committed npm lockfile.
 
 ## 6. Project workflow
 
@@ -75,6 +87,8 @@ The page can render without an AI key, but submitting a prompt currently require
 - [Agent team](docs/agent-team.md): project-manager handoff and planned engineer/QA roles.
 - [2026 final-project criteria](https://github.com/DataTalksClub/ai-dev-tools-zoomcamp/blob/main/project/README.md): authoritative rubric to recheck before submission.
 
-The course requires a public project and three peer reviews. Issue, deployment, test, and monitoring links will be added here once they exist.
+Work starts from a numbered [GitHub issue](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues) such as [B-01 / #1](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/1). The issue states the outcome, boundary, acceptance checks, and evidence. An agent or contributor links that issue in its work, records the files changed and checks run, and reports remaining gaps. The project manager keeps the plan and backlog aligned with decisions; an independent QA review is planned once implementation work starts. The owner reviews the result before an issue is closed.
 
-After creating and pushing the public GitHub repository, the owner can run `./scripts/publish-backlog.ps1` from PowerShell with GitHub CLI authenticated. The script creates or reuses issues whose titles contain the backlog IDs, then writes their verified URLs into `backlog.md`. Review the issue bodies and commit the updated backlog afterward.
+The course requires a public project and three peer reviews. The repository is public, and the [19 GitHub Issues](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues) are linked from the backlog. Deployment, test, and monitoring links will be added here once they exist.
+
+The owner can run `./scripts/publish-backlog.ps1` from PowerShell with GitHub CLI authenticated. The script creates or reuses issues whose titles contain the backlog IDs, then writes their verified URLs into `backlog.md`. Review the issue bodies and commit the updated backlog afterward.

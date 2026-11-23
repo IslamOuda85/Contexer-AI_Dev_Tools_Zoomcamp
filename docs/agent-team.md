@@ -1,6 +1,6 @@
 # Agent team and handoffs
 
-The project uses focused roles to keep product decisions, implementation, and verification reviewable. The human owner decides product direction, budgets, deployment, and publication. Agents work from the public issue tracker and the acceptance criteria in [project_plan.md](../project_plan.md) and [backlog.md](../backlog.md).
+The project uses focused roles to keep product decisions, implementation, and verification reviewable. The human owner decides product direction, budgets, deployment, and publication. Agents work from the public GitHub issue tracker and the acceptance criteria in [project_plan.md](../project_plan.md) and [backlog.md](../backlog.md).
 
 ## Project manager — active
 
@@ -27,4 +27,4 @@ flowchart LR
     QA -- Accepted evidence --> Owner
 ```
 
-An issue or PR should identify the backlog ID, links to the public tracker item, relevant acceptance results, and any decision made during implementation. The PM updates the backlog when scope or dependencies change. The owner reviews external publication and operational changes.
+An issue or PR should identify the backlog ID, link to the tracker item, report changed files and relevant acceptance results, and record any decision made during implementation. If an acceptance check is not met, keep the issue open and state the missing evidence. The PM updates the backlog when scope or dependencies change. The owner reviews external publication and operational changes.
