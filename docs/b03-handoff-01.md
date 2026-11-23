@@ -21,3 +21,7 @@
 ## QA request and next action
 
 Inspect every B-03 criterion independently. Record a verdict and evidence in [the QA report](qa-b03-review-01.md). Send a failing criterion with reproduction to the coordinator for correction, then recheck it. Return a final verdict and coverage limits to the owner; only then decide whether B-03 can be closed.
+
+## Owner review
+
+On 2026-11-24, the owner approved the B-03 changes after reviewing the result. The independent QA report records `QA: PASS` for all five acceptance checks. This approval permits the coordinating agent to close B-03; it does not certify future application security or deployment behavior.
