@@ -1,12 +1,10 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { missions, PROMPT_MAX_CHARS } from "@/lib/missions";
 
 const Input = z.object({
-  missionTitle: z.string(),
-  missionGoal: z.string(),
-  missionSkill: z.string(),
-  level: z.number(),
-  prompt: z.string().min(1).max(4000),
+  missionId: z.string().min(1).max(16),
+  prompt: z.string().trim().min(1).max(PROMPT_MAX_CHARS),
 });
 
 export type ZigoResult = {
@@ -44,12 +42,15 @@ The player writes a prompt to ZIGO, a literal-minded AI robot. You must do TWO j
 Return ONLY JSON: {"reply":string,"score":number,"scores":{"clarity":number,"context":number,"constraints":number},"verdict":string,"coach":string,"upgrade":string,"upgradeReply":string}
 - verdict: max 10 words, e.g. "Zigo guessed. Badly."
 - coach: 2-3 sentences of concrete feedback naming what was missing or strong.
-- upgrade: a rewritten, expert-level version of the player's prompt for this mission.
+- upgrade: a rewritten, expert-level version of the player's prompt for this mission, no more than 800 characters.
 - upgradeReply: Zigo's response to that ideal prompt.`;
 
 export const askZigo = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => Input.parse(input))
   .handler(async ({ data }): Promise<ZigoResult> => {
+    const mission = missions.find((item) => item.id === data.missionId);
+    if (!mission) throw new Error("Unknown mission.");
+
     const key = process.env["LOVABLE_API_KEY"];
     if (!key) throw new Error("Missing LOVABLE_API_KEY");
 
@@ -67,9 +68,9 @@ export const askZigo = createServerFn({ method: "POST" })
           { role: "system", content: SYSTEM },
           {
             role: "user",
-            content: `MISSION (level ${data.level}): ${data.missionTitle}
-GOAL THE PLAYER MUST ACHIEVE: ${data.missionGoal}
-SKILL BEING TAUGHT: ${data.missionSkill}
+            content: `MISSION (level ${mission.level}): ${mission.title}
+GOAL THE PLAYER MUST ACHIEVE: ${mission.goal}
+SKILL BEING TAUGHT: ${mission.skill}
 
 PLAYER'S PROMPT TO ZIGO:
 """
@@ -111,4 +112,3 @@ Respond with the JSON object.`,
       upgradeReply: parsed.upgradeReply ?? "",
     };
   });
-

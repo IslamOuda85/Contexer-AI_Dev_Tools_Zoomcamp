@@ -15,3 +15,9 @@ This read-only audit of the early Lovable prototype was performed while planning
 | Low | [`zigo.functions.ts`](../src/lib/zigo.functions.ts) combines model instructions, network transport, parsing, and grading. | Later behavior is harder to test and replace independently. | B-07 to B-09: separate execution, validation, and scoring responsibilities. |
 
 These findings are a baseline for later reviews. Recheck each one after its assigned issue is implemented and record actual test evidence. No paid model calls were used for this review.
+
+## Follow-up after the UI revision
+
+- The server now receives a mission ID and loads mission facts itself. It trims prompts and enforces the shared 800-character limit. This resolves the forged-mission finding above; sign-in and quota controls remain future work.
+- The UI ignores a response that arrives after changing levels and displays a snapshot of the prompt actually submitted. This resolves the stale-result finding above.
+- The former formatting error in `src/routes/__root.tsx` was fixed. `npm run lint` now exits successfully with six non-blocking Fast Refresh warnings. The lockfile and clean-install concern remains.
