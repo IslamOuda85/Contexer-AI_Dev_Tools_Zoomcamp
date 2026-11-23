@@ -90,7 +90,7 @@ Run `npm run check:missions` to validate the ten mission cards, rubric weights, 
 - [Project plan](project_plan.md): user journeys, scoring rules, milestones, and acceptance criteria.
 - [Backlog](backlog.md): ordered tasks and GitHub issue mapping.
 - [Agent instructions](AGENTS.md): durable project context and role boundaries.
-- [Agent team](docs/agent-team.md): project manager, software engineer, UI/UX trial, and planned QA handoffs.
+- [Agent team](docs/agent-team.md): project manager, designer, software engineer, independent QA, UI/UX learner trial, and their handoff graph.
 - [UI/UX learner-trial role](ui-ux-engineer.md): first-time user walkthrough and experience-report rules.
 - [UI/UX trial 01](docs/ui-ux-trial-01.md): browser-control blocker; visual and prompt-feedback observations remain untested.
 - [2026 final-project criteria](https://github.com/DataTalksClub/ai-dev-tools-zoomcamp/blob/main/project/README.md): authoritative rubric to recheck before submission.

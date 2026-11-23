@@ -68,11 +68,12 @@ This is the local source of truth for planned work. It is based on [project_plan
 **Acceptance checks:**
 
 - `AGENTS.md` describes Contexer, essential commands, relevant docs, security boundaries, and Git practices; preserve the Lovable published-history warning while applicable.
-- Document product manager, engineer, and QA responsibilities and their handoff process; the first custom product-manager agent is present.
+- Define project manager, designer, engineer, independent QA, and learner-trial responsibilities with project-scoped agent files; the designer follows the owner's blue/dark-blue direction.
+- Document the routing graph: PM grooming, design brief for visual work, engineering, independent QA, failure return to engineering, blocked-work escalation, and owner review before closure.
 - The process explains how agents choose an issue, report assumptions, record acceptance evidence, and hand off for independent review.
 - Instructions link to modular documents instead of duplicating the full plan.
 
-**Evidence:** `AGENTS.md`, agent definitions, team/process document, one recorded agent handoff. **Rubric:** Agent Team Specification; Context Management.
+**Evidence:** `AGENTS.md`, agent definitions, team/process document, one recorded agent handoff and independent QA verdict. **Rubric:** Agent Team Specification; Context Management.
 
 ### B-04 — Prove auth, database, and host integration
 
