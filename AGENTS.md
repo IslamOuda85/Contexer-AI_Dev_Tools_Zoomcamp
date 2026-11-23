@@ -5,8 +5,9 @@ Contexer is an English-language prompt-engineering learning game. The current co
 ## Working process
 
 - The project manager owns the problem statement, backlog, dependency order, and acceptance criteria. Its project-scoped definition is [.codex/agents/project_manager.toml](.codex/agents/project_manager.toml). Use it for substantial planning or backlog changes.
-- An engineer implements one bounded backlog task at a time and keeps the project runnable.
+- The [software engineer](.codex/agents/software_engineer.toml) implements one bounded backlog task at a time, keeps the project runnable, and reviews code at each meaningful stage against reproducibility, scalability, security, integrity, modularity, and product relevance.
 - A separate QA review checks behavior against acceptance criteria and records evidence. Define specialized engineer and QA agents when those roles enter active work.
+- The [UI/UX learner-trial agent](ui-ux-engineer.md) tests the actual learner journey and records experience feedback separately from QA and code review.
 - Keep repository documentation and user-facing product text in English. Explain planning changes to the owner in the language of the conversation.
 - Distinguish current behavior from planned behavior. Do not claim a feature, test, GitHub issue, deployment, or AI evaluation exists without checking it.
 - Keep API keys and user prompts out of source control and telemetry. AI calls must originate on the server. Authorize private data access in the server and database.

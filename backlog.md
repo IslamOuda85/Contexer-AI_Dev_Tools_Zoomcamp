@@ -57,7 +57,7 @@ This is the local source of truth for planned work. It is based on [project_plan
 - Each mission has reviewed weak, partial, and strong prompt fixtures with expected checklist outcomes.
 - The reference remains hidden until the first attempt; examples do not reveal the full answer beforehand.
 
-**Evidence:** Mission content and rubric files, review notes, fixtures. **Rubric:** Product Specification; Application; Testing.
+**Evidence:** [Learner mission cards](src/lib/missions.ts), [rubrics, references, and fixtures](src/lib/mission-specs.server.ts), [content review](docs/mission-content-review.md), and `npm run check:missions`. Actual reference responses and evaluator results belong to B-08/B-09. **Rubric:** Product Specification; Application; Testing.
 
 ### B-03 — Define agent roles and durable project context
 

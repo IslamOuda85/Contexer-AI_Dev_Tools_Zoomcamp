@@ -22,15 +22,7 @@ function Meter({ label, value }: { label: string; value: number }) {
   );
 }
 
-function Field({
-  label,
-  value,
-  tone,
-}: {
-  label: string;
-  value: string;
-  tone: "muted" | "signal";
-}) {
+function Field({ label, value, tone }: { label: string; value: string; tone: "muted" | "signal" }) {
   return (
     <div className="mt-4">
       <p
@@ -146,6 +138,10 @@ export function ZigoGame() {
             <span className="text-foreground">Skill:</span> {mission.skill}
           </p>
 
+          <p className="mt-3 text-xs text-muted-foreground">
+            <span className="text-foreground">Weak prompt example:</span> “{mission.weakExample}”
+          </p>
+
           <button
             onClick={() => setShowHints((s) => !s)}
             className="mt-5 inline-flex items-center gap-2 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
@@ -230,7 +226,9 @@ export function ZigoGame() {
             <div className="rounded-3xl border border-border bg-surface p-5 shadow-panel">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <div>
-                  <span className="font-display text-4xl font-bold text-signal">{result.score}</span>
+                  <span className="font-display text-4xl font-bold text-signal">
+                    {result.score}
+                  </span>
                   <span className="font-mono text-xs text-muted-foreground">/100</span>
                   <p className={`text-sm font-semibold ${rank(result.score).tone}`}>
                     {rank(result.score).label}
@@ -273,9 +271,7 @@ export function ZigoGame() {
       {/* Side-by-side: your path vs the ideal path */}
       {result && (
         <div className="mt-8">
-          <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent">
-            Side by side
-          </p>
+          <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent">Side by side</p>
           <h3 className="mt-1 text-xl font-bold">Your path vs. the ideal path</h3>
 
           <div className="mt-5 grid gap-5 lg:grid-cols-2">

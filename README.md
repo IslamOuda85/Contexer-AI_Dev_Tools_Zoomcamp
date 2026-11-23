@@ -64,27 +64,35 @@ The reference prompt is revealed after the first attempt. Its response is genera
 
 ## 4. Current implementation
 
-The prototype has a landing page, ten mission cards, a prompt editor, a response display, and a server function that asks the Lovable AI gateway for a reply, score, coaching, and an improved example in one call. Best scores live only in browser memory and disappear on refresh. The mission scenarios are drafted, but their rubrics and reference prompts still need review. Accounts, a database, automated tests, containerization, CI/CD, a verified public deployment, and operational monitoring are not yet included in this checkout.
+The prototype has a landing page, ten mission cards, a prompt editor, a response display, and a server function that asks the Lovable AI gateway for a reply, score, coaching, and an improved example in one call. Best scores live only in browser memory and disappear on refresh. The [mission scenarios, rubrics, and reference prompts](docs/mission-content-review.md) have been reviewed as content; reference responses have not been executed or evaluated. Accounts, a database, automated tests, containerization, CI/CD, a verified public deployment, and operational monitoring are not yet included in this checkout.
 
 This distinction matters when reviewing progress: the product plan and backlog describe intended behavior, while this section describes what the checked-in prototype currently does.
 
 ## 5. Run the current prototype locally
 
-Prerequisites: Node.js and npm. From this directory:
+Prerequisites: Node.js 24 or newer and npm. Node 24 supports the repository's direct TypeScript imports in the mission-content check. From this directory:
 
 ```sh
-npm install
+npm install --legacy-peer-deps --no-package-lock
 npm run dev
 ```
 
-The page can render without an AI key, but submitting a prompt currently requires a server-side `LOVABLE_API_KEY`. Do not commit real keys. This dependency will be replaced by the OpenAI integration in the backlog. The prototype has `npm run build` and `npm run lint`; it does not yet have a test command. The npm installation path has not been verified from a clean checkout and does not yet have a committed npm lockfile.
+This temporary install command was used successfully on Windows with Node 24 and npm 11. The dev server used `http://127.0.0.1:8080/` here; check the terminal for the port on your machine. There is no committed npm lockfile yet, so clean-install reproducibility remains a B-04/B-13 task.
+
+The page can render without an AI key, but submitting a prompt currently requires a server-side `LOVABLE_API_KEY`. Do not commit real keys. This dependency will be replaced by the OpenAI integration in the backlog. The prototype has `npm run build` and `npm run lint`; it does not yet have a test command. The build and TypeScript check passed during B-02; the repository-wide lint command still reports formatting errors outside the B-02 files.
+
+For the planned OpenAI integration, copy [`.env.example`](.env.example) to `.env.local` and put `OPENAI_API_KEY=your_key_here` in `.env.local`. The latter is ignored by Git. Restart the dev server after changing environment variables. The current prototype will not use this OpenAI key until B-07 replaces the Lovable gateway; never put it in a `VITE_` variable or browser code.
+
+Run `npm run check:missions` to validate the ten mission cards, rubric weights, reference-prompt limits, and example fixtures without making AI calls.
 
 ## 6. Project workflow
 
 - [Project plan](project_plan.md): user journeys, scoring rules, milestones, and acceptance criteria.
 - [Backlog](backlog.md): ordered tasks and GitHub issue mapping.
 - [Agent instructions](AGENTS.md): durable project context and role boundaries.
-- [Agent team](docs/agent-team.md): project-manager handoff and planned engineer/QA roles.
+- [Agent team](docs/agent-team.md): project manager, software engineer, UI/UX trial, and planned QA handoffs.
+- [UI/UX learner-trial role](ui-ux-engineer.md): first-time user walkthrough and experience-report rules.
+- [UI/UX trial 01](docs/ui-ux-trial-01.md): browser-control blocker; visual and prompt-feedback observations remain untested.
 - [2026 final-project criteria](https://github.com/DataTalksClub/ai-dev-tools-zoomcamp/blob/main/project/README.md): authoritative rubric to recheck before submission.
 
 Work starts from a numbered [GitHub issue](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues) such as [B-01 / #1](https://github.com/IslamOuda85/Contexer-AI_Dev_Tools_Zoomcamp/issues/1). The issue states the outcome, boundary, acceptance checks, and evidence. An agent or contributor links that issue in its work, records the files changed and checks run, and reports remaining gaps. The project manager keeps the plan and backlog aligned with decisions; an independent QA review is planned once implementation work starts. The owner reviews the result before an issue is closed.

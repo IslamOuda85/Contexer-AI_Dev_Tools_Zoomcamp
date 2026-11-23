@@ -75,16 +75,16 @@ Before release, maintain a small reviewed set of weak, partial, and strong promp
 
 ## 5. Mission content plan
 
-The ten drafted levels provide the initial curriculum. Each mission card must supply all facts needed to complete its goal. The examples below illustrate good and weak *instructions*; exact rubrics, reference prompts, and evaluated examples will be written and reviewed during the content milestone.
+The ten drafted levels provide the initial curriculum. Each mission card must supply all facts needed to complete its goal. The examples below illustrate good and weak *instructions*. The [B-02 content review](docs/mission-content-review.md) records the rubrics, reference prompts, and fixture expectations. Actual model responses and evaluator behavior remain to be reviewed in B-08 and B-09.
 
 | Mission | Core skill | Weak example | Strong example pattern |
 | --- | --- | --- | --- |
 | 1. Say it clearly | State the artifact and essential facts | “Write a birthday message.” | Request a short birthday message for Maya, turning 30, and mention her interest in rock climbing. |
 | 2. Give a role | Specify role, audience, and length | “Why is the sky blue?” | Ask a friendly science teacher to explain it to a curious seven-year-old in fewer than 60 words. |
-| 3. Shape the output | Specify structure, budget, and exclusions | “Plan Lisbon.” | Request a three-day, budget-conscious Lisbon itinerary with day headings and no museums. |
+| 3. Shape the output | Specify structure, budget, and exclusions | “Plan Lisbon.” | Request a three-day Lisbon itinerary with day headings, a €60/day activities and local-transport budget excluding lodging, and no museums. |
 | 4. Feed the context | Provide situation, relationship, tone, and desired outcome | “Decline this job.” | Explain the fictional offer and reason for declining; request a polite, brief email that leaves the door open. |
-| 5. Show an example | Supply pattern and output rules | “Make these sound better.” | Provide the five mission notes, one input-to-tagline example, and rules for tone and length. |
-| 6. Evaluate a decision | Define process and criteria | “Pick a price.” | Provide three actual pricing options and ask for trade-offs, explicit evaluation criteria, assumptions, and a recommendation. |
+| 5. Show, don't tell | Supply pattern and output rules | “Make these sound better.” | Provide the five mission notes, one input-to-tagline example, and rules for tone and length. |
+| 6. Compare before deciding | Define process and criteria | “Pick a price.” | Provide three actual pricing options and ask for trade-offs, explicit evaluation criteria, assumptions, and a recommendation. |
 | 7. Ground in the source | Use only supplied facts and flag unknowns | “Announce the event.” | Use the event notice, preserve its exact facts, and label registration details as unknown. |
 | 8. Clarify before acting | Ask for missing details before scheduling | “Move it to Friday.” | Ask up to three essential questions about the current appointment, requested time, and time zone before suggesting a slot. |
 | 9. Critique, then revise | Repair tone and factual claims | “Make this nicer.” | Flag the blunt draft and unknown refund eligibility, then write a respectful reply asking for the missing facts. |
