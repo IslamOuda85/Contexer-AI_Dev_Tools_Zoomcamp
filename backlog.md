@@ -86,7 +86,7 @@ This is the local source of truth for planned work. It is based on [project_plan
 - A minimal signed-in server request reads and writes a private database row locally.
 - A second account cannot read it.
 - Local services can be started in a documented, repeatable way; identify any gap to the course's one-command container criterion.
-- Record the deployment target and necessary configuration, with no secrets committed.
+- Record the deployment target, the owner's selected production hostname `contexer.owda.io`, its DNS prerequisites, and necessary configuration, with no secrets committed.
 
 **Evidence:** Spike code or branch, local run notes, access-control check, architecture decision. **Rubric:** Application; Containerization; Deployment.
 
@@ -247,7 +247,7 @@ This is the local source of truth for planned work. It is based on [project_plan
 
 **Acceptance checks:**
 
-- Public URL serves the app and a reviewer can complete the main flow with a test account.
+- `contexer.owda.io` serves the app and a reviewer can complete the main flow with a test account; include a link from the owner's `owda.io` project collection when that collection's location is confirmed.
 - Passing CI deploys to development; production deployment requires an explicit manual promotion.
 - A documented rollback restores a previous working version in a demonstration or rehearsal.
 - README documents URLs and setup without exposing credentials.

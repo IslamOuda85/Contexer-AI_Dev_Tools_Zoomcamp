@@ -36,6 +36,7 @@ After a mission, a learner should be able to identify important missing prompt e
 | Score | A mission-specific, weighted checklist produces a percentage from 0 to 100 |
 | Success | Provisional threshold: at least 80%, with no critical requirement missing |
 | Usage | Provisional limit: five live attempts per account per day, adjustable after observing real usage |
+| Production address | `contexer.owda.io`, presented within the owner's `owda.io` project collection |
 
 The success threshold and daily limit are starting values to test with real examples, not claims that the learning experience is already calibrated.
 
@@ -149,7 +150,7 @@ The owner's current API balance is approximately USD 3.50. This is a pilot budge
 
 ### Milestone 3 — Public deployment and delivery pipeline
 
-- Deploy a development environment and a publicly reachable production environment, provisionally using Vercel with a subdomain such as `contexer.owda.io`.
+- Deploy a development environment and a publicly reachable production environment, provisionally using Vercel. The owner selected `contexer.owda.io` as the production hostname within the `owda.io` project collection; confirm the hosting integration and DNS requirements before publishing.
 - Add CI that runs tests on every pull request.
 - Add automatic deployment to development after passing checks and a manual production promotion with a documented rollback path.
 - Record deployment URL and verification evidence in the README.

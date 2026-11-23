@@ -20,7 +20,7 @@ The [project plan](project_plan.md) defines behavior, scope, acceptance criteria
 | Identity and data | Supabase Auth and PostgreSQL with row-level access rules | Planned |
 | AI service | OpenAI Responses API called only from the server | Planned; the prototype uses the Lovable AI gateway |
 | Local services | Docker-based local application and database/auth stack | Planned and must be verified as a single-command run |
-| Hosting | Vercel for the application, managed PostgreSQL/Auth, `contexer.owda.io` as a candidate domain | Planned, not deployed |
+| Hosting | Vercel for the application and managed PostgreSQL/Auth are proposed; `contexer.owda.io` is the chosen production hostname under the owner's `owda.io` projects | Planned, not deployed |
 | Source and delivery | GitHub repository, Issues, Actions, development and production environments | Public repository and 19 Issues available; workflows pending |
 | Testing | Vitest for unit logic, Testing Library for UI, Playwright for browser flows, and a separate model-quality evaluation set | Planned |
 | Observability | OpenTelemetry with correlated logs, traces, and metrics, collected in a Grafana-compatible stack | Planned |
